@@ -1,5 +1,5 @@
 body {
-  font-family: arial, sans-serif;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
 }
 
 h1 {
@@ -33,11 +33,12 @@ li:first-letter {
   padding      : 20px;
   border       : 1px solid #DADDE1;
   border-radius: 10px;
+  background   : #def88e;
 }
 
 .app-wrapper {
   max-width: 600px;
-  margin   : 0 auto;
+  margin   : 35px auto;
 }
 
 .city-view {
@@ -70,4 +71,7 @@ li:first-letter {
   color : black;
   cursor: default;
   
+}
+.source-code{
+  text-decoration: none;
 }
