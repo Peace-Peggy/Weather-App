@@ -25,25 +25,26 @@ function formatDateTime(timestamp){
 
 }
 function displayTemperature(response){
-  let iconElement                  = document.querySelector("#icon");
-  let getCityName                  = response.data.name;
-  let getWeatherDescription        = response.data.weather[0].description;
-  let getHumidity                  = response.data.main.humidity;
-  let getWind                      = Math.round(response.data.wind.speed);
-  let cityName                     = document.querySelector("#city");
-      cityName.innerHTML           = getCityName;
-  let temperature                  = document.querySelector("#temperature");
-  let holdTempValue                = Math.round(response.data.main.temp);
-      temperature.innerHTML        = holdTempValue;
-  let weatherDescription           = document.querySelector("#weather-description");
-      weatherDescription.innerHTML = getWeatherDescription;
-  let humidity                     = document.querySelector("#humidity");
-      humidity.innerHTML           = getHumidity;
-  let wind                         = document.querySelector("#wind");
-      wind.innerHTML               = getWind;
-  let dateElement                  = document.querySelector("#date-time");
-      dateElement.innerHTML        = formatDateTime(response.data.dt*1000);
-  let getIconCode                  = response.data.weather[0].icon;
+                                                                  celciusTemp                  = response.data.main.temp;
+                                                              let iconElement                  = document.querySelector("#icon");
+                                                              let getCityName                  = response.data.name;
+                                                              let getWeatherDescription        = response.data.weather[0].description;
+                                                              let getHumidity                  = response.data.main.humidity;
+                                                              let getWind                      = Math.round(response.data.wind.speed);
+                                                              let cityName                     = document.querySelector("#city");
+                                                                  cityName.innerHTML           = getCityName;
+                                                              let temperature                  = document.querySelector("#temperature");
+                                                              let holdTempValue                = Math.round(celciusTemp);
+                                                                  temperature.innerHTML        = holdTempValue;
+                                                              let weatherDescription           = document.querySelector("#weather-description");
+                                                                  weatherDescription.innerHTML = getWeatherDescription;
+                                                              let humidity                     = document.querySelector("#humidity");
+                                                                  humidity.innerHTML           = getHumidity;
+                                                              let wind                         = document.querySelector("#wind");
+                                                                  wind.innerHTML               = getWind;
+                                                              let dateElement                  = document.querySelector("#date-time");
+                                                                  dateElement.innerHTML        = formatDateTime(response.data.dt*1000);
+                                                              let getIconCode                  = response.data.weather[0].icon;
       iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${getIconCode}@2x.png`);
       iconElement.setAttribute("alt", `${getWeatherDescription}`)
 }
@@ -61,6 +62,30 @@ function submitForm(event){
 
 }
 
+function showFahrenheit(event) {
+  event.preventDefault();
+  let theTemperature = document.querySelector("#temperature");
+  linkToCelcius.classList.remove("active");
+  linkToFahrenheit.classList.add("active");
+  let fahrenheitConversion     = (celciusTemp * 9) / 5 + 32;
+      theTemperature.innerHTML = Math.round(fahrenheitConversion);
+}
+function showCelcius(event) {
+  event.preventDefault();
+  linkToCelcius.classList.add("active");
+  linkToFahrenheit.classList.remove("active");
+  let theTemperature           = document.querySelector("#temperature");
+      theTemperature.innerHTML = Math.round(celciusTemp);
+}
+
+let celciusTemp = null;
+
 searchCity("Winnipeg");
 let weatherForm = document.querySelector("#search-city");
 weatherForm.addEventListener("submit", submitForm);
+
+let linkToFahrenheit = document.querySelector("#link-to-fahrenheit");
+linkToFahrenheit.addEventListener("click", showFahrenheit);
+
+let linkToCelcius = document.querySelector("#link-to-celcius");
+linkToCelcius.addEventListener("click", showCelcius);

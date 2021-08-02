@@ -62,3 +62,12 @@ li:first-letter {
   font-size: 16px;
   top      : -32px;
 }
+.units a{
+  text-decoration: none;
+}
+
+.weather-temp .active{
+  color : black;
+  cursor: default;
+  
+}
