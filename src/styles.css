@@ -75,3 +75,21 @@ li:first-letter {
 .source-code{
   text-decoration: none;
 }
+
+.five-days-forecast{
+  text-align: center;
+  margin    : 20px;
+  color     : black;
+}
+
+.forecast-day{
+  font-size: 16px;
+  opacity  : 0.5;
+}
+
+.forecast-temperature{
+  font-size: 13px;
+}
+.forecast-in-min{
+  opacity: 0.5;
+}
