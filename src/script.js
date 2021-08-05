@@ -24,29 +24,55 @@ function formatDateTime(timestamp){
   return `${day} ${hours}:${minutes}`
 
 }
+function displayWeatherForecast(){
+  let holdForecast = document.querySelector("#days-forecast");
+
+  let getForecast = `<div class="row">`;
+
+  let days = ["Thu", "Fri", "Sat", "Sun"];
+  
+  days.forEach(function(day){
+      getForecast = 
+      getForecast + `
+          <div class="col-2">
+            <div class="forecast-day">
+              ${day}
+            </div>
+            <img src="https://ssl.gstatic.com/onebox/weather/64/fog.png" alt="" width="38" />
+            <div class="forecast-temperature">
+              <span ="forecast-in-max">20</span>
+              <span ="forecast-in-min">68</span>
+            </div>
+          </div>`;
+         });
+      getForecast            = getForecast + `</div>`;
+      holdForecast.innerHTML = getForecast;
+
+}
+
 function displayTemperature(response){
-                                                                  celciusTemp                  = response.data.main.temp;
-                                                              let iconElement                  = document.querySelector("#icon");
-                                                              let getCityName                  = response.data.name;
-                                                              let getWeatherDescription        = response.data.weather[0].description;
-                                                              let getHumidity                  = response.data.main.humidity;
-                                                              let getWind                      = Math.round(response.data.wind.speed);
-                                                              let cityName                     = document.querySelector("#city");
-                                                                  cityName.innerHTML           = getCityName;
-                                                              let temperature                  = document.querySelector("#temperature");
-                                                              let holdTempValue                = Math.round(celciusTemp);
-                                                                  temperature.innerHTML        = holdTempValue;
-                                                              let weatherDescription           = document.querySelector("#weather-description");
-                                                                  weatherDescription.innerHTML = getWeatherDescription;
-                                                              let humidity                     = document.querySelector("#humidity");
-                                                                  humidity.innerHTML           = getHumidity;
-                                                              let wind                         = document.querySelector("#wind");
-                                                                  wind.innerHTML               = getWind;
-                                                              let dateElement                  = document.querySelector("#date-time");
-                                                                  dateElement.innerHTML        = formatDateTime(response.data.dt*1000);
-                                                              let getIconCode                  = response.data.weather[0].icon;
-      iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${getIconCode}@2x.png`);
-      iconElement.setAttribute("alt", `${getWeatherDescription}`)
+                                                        celciusTemp                  = response.data.main.temp;
+                                                    let iconElement                  = document.querySelector("#icon");
+                                                    let getCityName                  = response.data.name;
+                                                    let getWeatherDescription        = response.data.weather[0].description;
+                                                    let getHumidity                  = response.data.main.humidity;
+                                                    let getWind                      = Math.round(response.data.wind.speed);
+                                                    let cityName                     = document.querySelector("#city");
+                                                        cityName.innerHTML           = getCityName;
+                                                    let temperature                  = document.querySelector("#temperature");
+                                                    let holdTempValue                = Math.round(celciusTemp);
+                                                        temperature.innerHTML        = holdTempValue;
+                                                    let weatherDescription           = document.querySelector("#weather-description");
+                                                        weatherDescription.innerHTML = getWeatherDescription;
+                                                    let humidity                     = document.querySelector("#humidity");
+                                                        humidity.innerHTML           = getHumidity;
+                                                    let wind                         = document.querySelector("#wind");
+                                                        wind.innerHTML               = getWind;
+                                                    let dateElement                  = document.querySelector("#date-time");
+                                                        dateElement.innerHTML        = formatDateTime(response.data.dt*1000);
+                                                    let getIconCode                  = response.data.weather[0].icon;
+    iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${getIconCode}@2x.png`);
+    iconElement.setAttribute("alt", `${getWeatherDescription}`)
 }
 function searchCity(city){
   let apiKey = "76408f461806bdd0e29fa34c52cb5991";
@@ -89,3 +115,5 @@ linkToFahrenheit.addEventListener("click", showFahrenheit);
 
 let linkToCelcius = document.querySelector("#link-to-celcius");
 linkToCelcius.addEventListener("click", showCelcius);
+
+displayWeatherForecast();
