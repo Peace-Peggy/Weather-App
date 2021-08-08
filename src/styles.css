@@ -1,9 +1,10 @@
 body {
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+  font-family     : Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  background-color: rgb(240, 252, 189);
 }
 
 h1 {
-  color        : #878787;
+  color        : rgb(206, 231, 62);
   font-size    : 24px;
   text-align   : left;
   line-height  : 29px;
@@ -16,10 +17,11 @@ ul {
 }
 
 li {
-  list-style : none;
-  margin     : 0;
-  padding    : 0;
-  color      : rgb(135, 135, 135);
+  list-style: none;
+  margin    : 0;
+  padding   : 0;
+  color     : rgb(206, 231, 62);
+  /* color : rgb(135, 135, 135); */
   font-size  : 16px;
   font-weight: 100;
   line-height: 19px;
@@ -30,10 +32,10 @@ li:first-letter {
 }
 
 .app-border {
-  padding      : 20px;
-  border       : 1px solid #DADDE1;
-  border-radius: 10px;
-  background   : #def88e;
+  padding         : 20px;
+  border          : 1px solid #DADDE1;
+  border-radius   : 10px;
+  background-color: #064975;
 }
 
 .app-wrapper {
@@ -49,27 +51,36 @@ li:first-letter {
   margin-right: 10px;
   height      : 64px;
   width       : 64px;
+  opacity     : 30;
 }
 
 .weather-temp strong {
-  color      : rgb(33, 33, 33);
+  color      : #fff;
   font-size  : 64px;
   font-weight: 400;
   line-height: 1;
+  
+}
+.weather-temp strong{
+  position: relative;
+  left    : 55px;
+  bottom  : 65px;
 }
 
 .weather-temp .units {
   position : relative;
   font-size: 16px;
-  top      : -32px;
+  left     : 50px;
+  top      : -95px;
 }
 .units a{
   text-decoration: none;
 }
 
 .weather-temp .active{
-  color : black;
-  cursor: default;
+  color  : black;
+  cursor : default;
+  opacity: 1.2;
   
 }
 .source-code{
@@ -77,14 +88,15 @@ li:first-letter {
 }
 
 .five-days-forecast{
-  text-align: center;
-  margin    : 20px;
-  color     : black;
+  text-align : center;
+  margin     : 20px;
+  color      : rgb(206, 231, 62);
+  font-weight: 700;
 }
 
 .forecast-day{
   font-size: 16px;
-  opacity  : 0.5;
+  opacity  : 0.8;
 }
 
 .forecast-temperature{
@@ -92,4 +104,9 @@ li:first-letter {
 }
 .forecast-in-min{
   opacity: 0.5;
+}
+.float-up{
+ position: relative;
+ left    : 150px;
+ bottom  : 80px;
 }
